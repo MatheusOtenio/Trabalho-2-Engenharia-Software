@@ -1,7 +1,7 @@
 import csv
 import os
 
-ARQUIVO_CSV = "usuarios.csv"
+ARQUIVO_CSV = os.path.join(os.path.dirname(__file__), "usuarios.csv")
 
 class Notificacao:
     def __init__(self, mensagem, lida=False):
