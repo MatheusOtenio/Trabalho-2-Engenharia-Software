@@ -1,11 +1,11 @@
-id,nome,email
-1,João Silva,joao@exemplo.com
-2,Maria Santos,maria@exemplo.com
-3,Pedro Oliveira,pedro@exemplo.com
-4,Ana Souza,ana@exemplo.com
-5,Carlos Ferreira,carlos@exemplo.com
-6,Lucia Mendes,lucia@exemplo.com
-7,Roberto Alves,roberto@exemplo.com
-8,Fernanda Lima,fernanda@exemplo.com
-9,Gabriel Costa,gabriel@exemplo.com
-10,Juliana Martins,juliana@exemplo.com
+id,nome,email,tipo
+1,João Silva,joao@exemplo.com,admin
+2,Maria Santos,maria@exemplo.com,moderator
+3,Pedro Oliveira,pedro@exemplo.com,user
+4,Ana Souza,ana@exemplo.com,moderator
+5,Carlos Ferreira,carlos@exemplo.com,user
+6,Lucia Mendes,lucia@exemplo.com,user
+7,Roberto Alves,roberto@exemplo.com,admin
+8,Fernanda Lima,fernanda@exemplo.com,user
+9,Gabriel Costa,gabriel@exemplo.com,moderator
+10,Juliana Martins,juliana@exemplo.com,user
