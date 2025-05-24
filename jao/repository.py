@@ -1,0 +1,66 @@
+# repository.py
+import csv
+import os
+from model import Question, Answer
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+QUESTIONS_FILE = os.path.join(BASE_DIR, 'questions.csv')
+ANSWERS_FILE = os.path.join(BASE_DIR, 'answers.csv')
+
+class QuestionRepositoryInterface:
+    def load_questions(self):
+        raise NotImplementedError
+    def load_answers(self, questions):
+        raise NotImplementedError
+    def save_question(self, question):
+        raise NotImplementedError
+    def save_answer(self, answer):
+        raise NotImplementedError
+    def get_next_id(self, questions):
+        raise NotImplementedError
+
+class CsvRepositoryAdapter(QuestionRepositoryInterface):
+    def __init__(self):
+        if not os.path.exists(QUESTIONS_FILE):
+            with open(QUESTIONS_FILE, 'w', newline='', encoding='utf-8') as f:
+                writer = csv.DictWriter(f, fieldnames=['id','RA','user','text'])
+                writer.writeheader()
+        if not os.path.exists(ANSWERS_FILE):
+            with open(ANSWERS_FILE, 'w', newline='', encoding='utf-8') as f:
+                writer = csv.DictWriter(f, fieldnames=['question_id','responder_RA','responder_name','text'])
+                writer.writeheader()
+
+    def load_questions(self):
+        questions = []
+        with open(QUESTIONS_FILE, newline='', encoding='utf-8') as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                questions.append(Question(int(row['id']), row['RA'], row['user'], row['text']))
+        return questions
+
+    def load_answers(self, questions):
+        with open(ANSWERS_FILE, newline='', encoding='utf-8') as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                a = Answer(int(row['question_id']), row['responder_RA'], row['responder_name'], row['text'])
+                for q in questions:
+                    if q.id == a.question_id:
+                        q.answers.append(a)
+                        break
+
+    def save_question(self, question):
+        with open(QUESTIONS_FILE, 'a', newline='', encoding='utf-8') as f:
+            writer = csv.DictWriter(f, fieldnames=['id','RA','user','text'])
+            writer.writerow({'id': question.id, 'RA': question.ra, 'user': question.user, 'text': question.text})
+
+    def save_answer(self, answer):
+        with open(ANSWERS_FILE, 'a', newline='', encoding='utf-8') as f:
+            writer = csv.DictWriter(f, fieldnames=['question_id','responder_RA','responder_name','text'])
+            writer.writerow({'question_id': answer.question_id,
+                             'responder_RA': answer.responder_ra,
+                             'responder_name': answer.responder_name,
+                             'text': answer.text})
+
+    def get_next_id(self, questions):
+        existing = [q.id for q in questions]
+        return max(existing, default=0) + 1
