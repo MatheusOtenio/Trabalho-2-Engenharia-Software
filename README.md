@@ -1,16 +1,16 @@
 # Sistema de Grupos de Estudo
 
-## 📋 Visão Geral
+##  Visão Geral
 
 Este projeto implementa um sistema completo para gerenciamento de grupos de estudo, desenvolvido como trabalho para a disciplina de Engenharia de Software. O sistema é composto por quatro módulos independentes, cada um implementando um padrão de projeto específico e focando em diferentes aspectos da gestão de grupos de estudo.
 
-## 🛠️ Tecnologias Utilizadas
+##  Tecnologias Utilizadas
 
 - **Linguagem**: Python
 - **Tipo de arquivo**: CSV (para armazenamento de dados)
 - **Arquitetura**: MVC (Model-View-Controller)
 
-## 🧩 Módulos e Padrões de Projeto
+##  Módulos e Padrões de Projeto
 
 ### 1. Configurações e Dashboard Pessoal (Caio)
 - **Padrão de Projeto**: Singleton
@@ -51,7 +51,7 @@ git clone https://github.com/MatheusOtenio/Trabalho-2-Engenharia-Software.git
 
 Ou baixe diretamente do GitHub acessando [este link](https://github.com/MatheusOtenio/Trabalho-2-Engenharia-Software.git).
 
-## 🚀 Como Executar
+##  Como Executar
 
 ### Pré-requisitos
 - Python 3.6 ou superior
@@ -81,7 +81,7 @@ pip install pandas
    - Opção 3: Projeto do Matheus (Chat de Grupos de Estudo)
    - Opção 4: Projeto do Viana (Montagem de Grupos)
 
-## 📊 Estrutura do Projeto
+##  Estrutura do Projeto
 
 ```
 trab2-eng-soft/
@@ -108,13 +108,9 @@ trab2-eng-soft/
     └── ...
 ```
 
-## 👥 Contribuidores
+##  Contribuidores
 
 - **Caio**: Configurações e Dashboard Pessoal (Padrão Singleton)
 - **Matheus**: Criação de Grupos com Chat (Padrão Factory Method)
 - **Vitor**: Criação Automática de Grupos (Padrão Observer)
 - **João**: Fórum de Perguntas e Respostas (Padrão Command Pattern)
-
-## 📝 Licença
-
-Este projeto é para fins educacionais como parte do trabalho da disciplina de Engenharia de Software.
