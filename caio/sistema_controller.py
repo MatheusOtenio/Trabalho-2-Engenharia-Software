@@ -3,7 +3,9 @@ import os
 from perfil import Perfil
 from grupo import Grupo
 
-ARQUIVO_CSV = os.path.join(os.path.dirname(__file__), "usuarios.csv")
+# Garantir que todos os arquivos sejam criados dentro da pasta caio
+DIR_CAIO = os.path.dirname(os.path.abspath(__file__))
+ARQUIVO_CSV = os.path.join(DIR_CAIO, "usuarios.csv")
 
 class SistemaController:
     _instance = None

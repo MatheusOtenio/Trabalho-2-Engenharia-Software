@@ -1,6 +1,7 @@
 from sistema_controller import SistemaController
 from perfil import Perfil
 from interface import mostrar_dashboard
+from dashboard import Dashboard
 
 def menu():
     sistema = SistemaController.get_instance()
@@ -24,6 +25,7 @@ def menu():
         print("1. Alterar nome")
         print("2. Alterar email")
         print("3. Adicionar matéria de interesse")
+        print("4. Visualizar dashboard completo")
         print("0. Sair")
 
         op = input("Escolha uma opção: ").strip()
@@ -36,6 +38,9 @@ def menu():
             materia = input("Nome da matéria: ")
             usuario.adicionar_materia(materia)
             sistema.adicionar_usuario_ao_grupo(usuario, materia)
+        elif op == "4":
+            dashboard = Dashboard()
+            dashboard.gerar_dashboard_completo()
         elif op == "0":
             print("👋 Saindo...")
             break
