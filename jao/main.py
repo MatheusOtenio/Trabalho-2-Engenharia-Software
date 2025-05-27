@@ -1,5 +1,5 @@
-# main.py
-#!/usr/bin/env python3
+# Main: Ponto de entrada da aplicação
+
 from controller import run
 
 if __name__ == '__main__':

@@ -1,7 +1,10 @@
+# View: Interface com usuário e apresentação de dados
+
 import os
 import platform
 
 class Colors:
+    # Códigos de cores para terminal
     HEADER = '\033[95m'
     OKBLUE = '\033[94m'
     OKCYAN = '\033[96m'
@@ -13,12 +16,15 @@ class Colors:
     UNDERLINE = '\033[4m'
 
 def clear_screen():
+    # Limpa a tela do terminal
     os.system('cls' if platform.system() == 'Windows' else 'clear')
 
 def pause():
+    # Pausa execução
     input(f"{Colors.OKBLUE}\nPressione Enter para continuar...{Colors.ENDC}")
 
 def show_menu():
+    # Exibe menu principal
     border = Colors.OKBLUE + '=' * 50 + Colors.ENDC
     print(border)
     title = ' Fórum de Perguntas e Respostas '
@@ -34,12 +40,14 @@ def show_menu():
     return input(f"{Colors.BOLD}Escolha uma opção: {Colors.ENDC}")
 
 def prompt_user_info():
+    # Coleta dados do usuário
     print(Colors.OKCYAN + '\n--- Informações do Usuário ---' + Colors.ENDC)
     name = input(f"{Colors.BOLD}Digite seu nome:{Colors.ENDC} ").strip()
     ra = input(f"{Colors.BOLD}Digite seu RA:{Colors.ENDC} ").strip()
     return name, ra
 
 def display_questions(questions):
+    # Lista todas as perguntas
     print(Colors.OKCYAN + '\n--- Lista de Perguntas ---' + Colors.ENDC)
     if not questions:
         print(Colors.WARNING + 'Nenhuma pergunta registrada.' + Colors.ENDC)
@@ -48,6 +56,7 @@ def display_questions(questions):
             print(f"{Colors.BOLD}ID {q.id}:{Colors.ENDC} {q.text} {Colors.OKGREEN}(por {q.user} - RA {q.ra}){Colors.ENDC}")
 
 def display_question_with_answers(q):
+    # Mostra pergunta e suas respostas
     print(Colors.OKCYAN + f"\n--- Pergunta ID {q.id} ---" + Colors.ENDC)
     print(f"{Colors.BOLD}{q.text}{Colors.ENDC} {Colors.OKGREEN}(por {q.user}){Colors.ENDC}")
     if not q.answers:
@@ -58,16 +67,20 @@ def display_question_with_answers(q):
             print(f"{Colors.OKGREEN}{i}.{Colors.ENDC} {a.text} {Colors.OKBLUE}(por {a.responder_name} - RA {a.responder_ra}){Colors.ENDC}")
 
 def prompt_question_text():
+    # Input de nova pergunta
     return input(f"{Colors.BOLD}Digite sua pergunta:{Colors.ENDC} ").strip()
 
 def prompt_question_id():
+    # Input e validação de ID
     try:
         return int(input(f"{Colors.BOLD}Digite o ID da pergunta:{Colors.ENDC} ").strip())
     except ValueError:
         return None
 
 def prompt_answer_text():
+    # Input de nova resposta
     return input(f"{Colors.BOLD}Digite sua resposta:{Colors.ENDC} ").strip()
 
 def show_message(msg):
+    # Exibe mensagem formatada
     print(f"{Colors.OKGREEN}{msg}{Colors.ENDC}")

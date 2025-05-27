@@ -5,7 +5,7 @@ def menu():
     print("\n===== SISTEMA DE GRUPOS DE ESTUDO =====\n")
     print("Escolha um projeto para executar:")
     print("1 - Projeto do Caio (Gerenciamento de Perfis e Grupos)")
-    print("2 - Projeto do João (Sistema de Grupos)")
+    print("2 - Projeto do João (Forum de Perguntas e Respostas)")
     print("3 - Projeto do Matheus (Chat de Grupos de Estudo)")
     print("4 - Projeto do Viana (Montagem de Grupos)")
     print("0 - Sair")
